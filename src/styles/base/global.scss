@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: $color-whitesmoke;
+}
+
+p {
+  margin: 0;
+  line-height: 25px;
+}
+
+a {
+  color: $color-secondary;
+  text-decoration: none;
+  font-weight: bold;
+}

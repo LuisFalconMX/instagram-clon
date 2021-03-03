@@ -1,0 +1,15 @@
+.grid {
+  width: fit-content;
+  margin: auto;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: 290px 290px 290px;
+  grid-template-rows: 290px;
+  grid-auto-columns: 290px;
+  grid-auto-rows: 290px;
+  grid-gap: 20px;
+}
+
+.grid__image {
+  width: 290px;
+}
