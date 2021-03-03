@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const pug = require('gulp-pug');
+const htmlmin = require('gulp-htmlmin');
 const terser = require('gulp-terser')
 const babel = require('gulp-babel');
 const browserSync = require('browser-sync').create();
@@ -46,6 +47,13 @@ gulp.task('optimize:css', () => {
   return gulp
     .src('./dist/**/*.css')
     .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('./dist/'))
+})
+
+gulp.task('optimize:html', () => {
+  return gulp
+    .src('./dist/**/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest('./dist/'))
 })
 
