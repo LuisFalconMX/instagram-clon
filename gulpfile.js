@@ -7,6 +7,7 @@ const terser = require('gulp-terser')
 const babel = require('gulp-babel');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
+const clean = require('gulp-clean');
 
 sass.compiler = require('node-sass');
 
@@ -31,18 +32,6 @@ gulp.task('compile:js', () => {
     .pipe(gulp.dest('./dist/'))
 })
 
-gulp.task('server', () => {
-  browserSync.init({
-    server: {
-      baseDir: './dist/'
-    }
-  });
-
-  gulp.watch('./src/styles/**/*.scss', gulp.series(['compile:sass'])).on('change', reload);
-  gulp.watch('./src/pages/**/*.pug', gulp.series(['compile:pug'])).on('change', reload);
-  gulp.watch('./src/javascript/**/*.js', gulp.series(['compile:js'])).on('change', reload);
-});
-
 gulp.task('optimize:css', () => {
   return gulp
     .src('./dist/**/*.css')
@@ -64,4 +53,29 @@ gulp.task('optimize:js', () => {
     .pipe(gulp.dest('./dist/'))
 })
 
-gulp.task('dev', gulp.series(['compile:sass', 'compile:pug', 'compile:js', 'server']));
+gulp.task('create:dist', () => {
+  return gulp
+    .src('./')
+    .pipe(gulp.dest('./dist/'))
+})
+
+gulp.task('clean:dist', () => {
+  return gulp
+    .src('./dist/')
+    .pipe(clean())
+})
+
+gulp.task('server', () => {
+  browserSync.init({
+    server: {
+      baseDir: './dist/'
+    }
+  });
+
+  gulp.watch('./src/styles/**/*.scss', gulp.series(['compile:sass'])).on('change', reload);
+  gulp.watch('./src/pages/**/*.pug', gulp.series(['compile:pug'])).on('change', reload);
+  gulp.watch('./src/javascript/**/*.js', gulp.series(['compile:js'])).on('change', reload);
+});
+
+gulp.task('dev', gulp.series(['create:dist', 'clean:dist', 'compile:sass', 'compile:pug', 'compile:js', 'server']));
+gulp.task('build', gulp.series(['clean:dist', 'compile:sass', 'compile:pug', 'compile:js', 'optimize:css', 'optimize:html', 'optimize:js']));
