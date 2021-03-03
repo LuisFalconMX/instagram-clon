@@ -39,3 +39,5 @@ gulp.task('server', () => {
   gulp.watch("./src/pages/**/*.pug", gulp.series(['compile:pug'])).on("change", reload);
   gulp.watch("./src/javascript/**/*.js", gulp.series(['compile:javascript'])).on("change", reload);
 });
+
+gulp.task("dev", gulp.series(["compile:sass", "compile:pug", "compile:javascript", "server"]));
