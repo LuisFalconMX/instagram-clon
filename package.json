@@ -1,0 +1,23 @@
+{
+  "name": "instagram-clon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp start",
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "deploy": "gulp deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisfalconmx/instagram-clon.git"
+  },
+  "keywords": [],
+  "author": "luisfalconmx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luisfalconmx/instagram-clon/issues"
+  },
+  "homepage": "https://github.com/luisfalconmx/instagram-clon#readme"
+}
