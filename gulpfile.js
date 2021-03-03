@@ -36,4 +36,6 @@ gulp.task('server', () => {
   });
 
   gulp.watch("./src/styles/**/*.scss", gulp.series(['compile:sass'])).on("change", reload);
+  gulp.watch("./src/pages/**/*.pug", gulp.series(['compile:pug'])).on("change", reload);
+  gulp.watch("./src/javascript/**/*.js", gulp.series(['compile:javascript'])).on("change", reload);
 });
