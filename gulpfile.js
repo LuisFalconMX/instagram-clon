@@ -2,6 +2,8 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const pug = require("gulp-pug");
 const babel = require('gulp-babel');
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
 
 sass.compiler = require("node-sass");
 
@@ -9,7 +11,7 @@ gulp.task("compile:sass", () => {
   return gulp
     .src("./src/styles/index.scss")
     .pipe(sass().on("error", sass.logError))
-    .pipe(gulp.dest("./dist"));
+    .pipe(gulp.dest("./dist"))
 });
 
 gulp.task('compile:pug', () => {
@@ -25,3 +27,13 @@ gulp.task('compile:javascript', () => {
     .pipe(babel({ presets: ['@babel/preset-env'] }))
     .pipe(gulp.dest('./dist/'))
 })
+
+gulp.task('server', () => {
+  browserSync.init({
+    server: {
+      baseDir: "./dist/"
+    }
+  });
+
+  gulp.watch("./src/styles/**/*.scss", gulp.series(['compile:sass'])).on("change", reload);
+});
