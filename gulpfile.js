@@ -20,7 +20,7 @@ gulp.task('compile:sass', () => {
 
 gulp.task('compile:pug', () => {
   return gulp
-    .src('./src/pages/**/*.pug')
+    .src('./src/views/pages/**/*.pug')
     .pipe(pug({ pretty: true }))
     .pipe(gulp.dest('./dist'))
 });
@@ -73,7 +73,7 @@ gulp.task('server', () => {
   });
 
   gulp.watch('./src/styles/**/*.scss', gulp.series(['compile:sass'])).on('change', reload);
-  gulp.watch('./src/pages/**/*.pug', gulp.series(['compile:pug'])).on('change', reload);
+  gulp.watch('./src/views/**/*.pug', gulp.series(['compile:pug'])).on('change', reload);
   gulp.watch('./src/javascript/**/*.js', gulp.series(['compile:js'])).on('change', reload);
 });
 
