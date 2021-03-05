@@ -1,7 +1,7 @@
 {
   "name": "instagram-clon",
   "version": "1.0.0",
-  "description": "",
+  "description": "Instagram clone layout as a practical frontend exercise",
   "main": "gulpfile.js",
   "engines": {
     "node": ">=14.15.4",
@@ -16,7 +16,13 @@
     "type": "git",
     "url": "git+https://github.com/luisfalconmx/instagram-clon.git"
   },
-  "keywords": [],
+  "keywords": [
+    "sass",
+    "npm",
+    "pug",
+    "personal-project",
+    "project-practice"
+  ],
   "author": "luisfalconmx",
   "license": "MIT",
   "bugs": {
