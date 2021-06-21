@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "Instagram clone layout as a practical frontend exercise",
   "main": "gulpfile.js",
-  "engines": {
-    "node": ">=14.15.4",
-    "npm": ">=7.5.4"
-  },
   "scripts": {
+    "start": "npm run dev",
     "dev": "gulp dev",
     "build": "gulp build",
     "deploy": "gh-pages -d dist"
@@ -30,18 +27,16 @@
   },
   "homepage": "https://github.com/luisfalconmx/instagram-clon#readme",
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
     "browser-sync": "^2.26.14",
-    "gh-pages": "^3.1.0",
+    "gh-pages": "^3.2.2",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-pug": "^1.3.1",
-    "gulp-sass": "^4.1.0",
-    "gulp-terser": "^2.0.1",
-    "node-sass": "^5.0.0"
+    "gulp-terser": "^2.0.1"
   }
 }
