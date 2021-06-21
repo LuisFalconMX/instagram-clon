@@ -7,7 +7,7 @@
   grid-template-rows: 320px;
   grid-auto-rows: 320px;
   row-gap: 30px;
-  @media (min-width: 620px) {
+  @media (min-width: @medium) {
     width: calc(100% - 20px);
     padding: 10px;
     grid-template-columns: repeat(2, 1fr);
@@ -15,7 +15,7 @@
     grid-auto-rows: 290px;
     gap: 20px;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: @large) {
     width: fit-content;
     grid-template-columns: 290px 290px 290px;
   }
