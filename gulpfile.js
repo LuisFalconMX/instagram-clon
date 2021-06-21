@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const less = require('gulp-less');
 const cleanCSS = require('gulp-clean-css');
 const pug = require('gulp-pug');
 const htmlmin = require('gulp-htmlmin');
@@ -8,12 +9,10 @@ const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 const clean = require('gulp-clean');
 
-sass.compiler = require('node-sass');
-
-gulp.task('compile:sass', () => {
+gulp.task('compile:less', () => {
   return gulp
-    .src('./src/styles/index.scss')
-    .pipe(sass().on('error', sass.logError))
+    .src('./src/styles/index.less')
+    .pipe(less())
     .pipe(gulp.dest('./dist'))
 });
 
@@ -71,10 +70,10 @@ gulp.task('server', () => {
     }
   });
 
-  gulp.watch('./src/styles/**/*.scss', gulp.series(['compile:sass'])).on('change', reload);
+  gulp.watch('./src/styles/**/*.less', gulp.series(['compile:less'])).on('change', reload);
   gulp.watch('./src/views/**/*.pug', gulp.series(['compile:pug'])).on('change', reload);
   gulp.watch('./src/javascript/**/*.js', gulp.series(['compile:js'])).on('change', reload);
 });
 
-gulp.task('dev', gulp.series(['create:dist', 'clean:dist', 'compile:sass', 'compile:pug', 'compile:js', 'server']));
-gulp.task('build', gulp.series(['clean:dist', 'compile:sass', 'compile:pug', 'compile:js', 'optimize:css', 'optimize:html', 'optimize:js']));
+gulp.task('dev', gulp.series(['create:dist', 'clean:dist', 'compile:less', 'compile:pug', 'compile:js', 'server']));
+gulp.task('build', gulp.series(['clean:dist', 'compile:less', 'compile:pug', 'compile:js', 'optimize:css', 'optimize:html', 'optimize:js']));
