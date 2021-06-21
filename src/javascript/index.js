@@ -28,6 +28,6 @@ fetch(
   .then((resp) => resp.json())
   .then((data) => {
     data.photos.forEach((photo) => {
-      grid.innerHTML += `<img class="grid__image" src="${photo.src.medium}" alt="" />`;
+      grid.innerHTML += `<img class="grid__image" src="${photo.src.large}" alt="" />`;
     });
   });

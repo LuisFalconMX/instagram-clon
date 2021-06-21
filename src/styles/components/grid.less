@@ -1,13 +1,24 @@
 .grid {
-  width: fit-content;
-  margin: auto;
+  width: calc(100% - 40px);
+  padding: 20px;
   margin: 30px auto;
   display: grid;
-  grid-template-columns: 290px 290px 290px;
-  grid-template-rows: 290px;
-  grid-auto-columns: 290px;
-  grid-auto-rows: 290px;
-  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 320px;
+  grid-auto-rows: 320px;
+  row-gap: 30px;
+  @media (min-width: 620px) {
+    width: calc(100% - 20px);
+    padding: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 290px;
+    grid-auto-rows: 290px;
+    gap: 20px;
+  }
+  @media (min-width: 1024px) {
+    width: fit-content;
+    grid-template-columns: 290px 290px 290px;
+  }
 }
 
 .grid__image {
