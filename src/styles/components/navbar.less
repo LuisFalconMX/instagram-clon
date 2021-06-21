@@ -1,17 +1,22 @@
 .navbar {
-  width: 100%;
+  width: calc(100% - 40px);
   height: auto;
-  padding: 15px 0px 8px;
+  padding: 15px 20px 8px;
   border-bottom: 1px solid @color-blacksoft;
   position: sticky;
   top: 0px;
   z-index: 10;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 120px 1fr;
   grid-template-rows: auto;
   justify-items: center;
   align-items: center;
   background-color: @color-white;
+  @media (min-width: @medium) {
+    width: 100%;
+    padding: 15px 0px 8px;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .navbar__search {
@@ -22,6 +27,17 @@
   border-radius: 4px;
   background-color: @color-whitesmoke;
   text-align: center;
+  display: none;
+  @media (min-width: @medium) {
+    display: block;
+  }
+}
+
+.navbar__nav {
+  margin-left: auto;
+  @media (min-width: @medium) {
+    margin-left: 0;
+  }
 }
 
 .navbar__links {
